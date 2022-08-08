@@ -27,6 +27,14 @@ android {
     }
 }
 
+ext {
+    // variable para el caso en que utilicemos mas de una implementación de una librería,
+    // para que éstas no tengan diferentes versiones por error.
+    // Luego si hay que actualizar esas implementaciones,
+    // se cambia el valor de la variable
+    retrofitVersion = '2.9.0'
+}
+
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.4.2'
@@ -38,12 +46,22 @@ dependencies {
 
     implementation 'javax.annotation:javax.annotation-api:1.3.2'
 
-    //Interactuación con APIs Rest
-    implementation 'com.squareup.retrofit2:retrofit2:2.4.0'
+    //Dagger
+    implementation 'com.google.dagger:dagger:2.28.3'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.28.3'
 
-    //Parseo de JSON
-    implementation "com.squareup.retrofit2:converter-gson:2.4.0"
+    //Interactuación con APIs Rest
+    // (en lugar de poner número de version, se indica la variable declarada en "ext" mas arriba)
+    // Para que funcione la version indicada a traves de una variable, se debe utilizar COMILLAS DOBLES
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+
+    //Parseo de JSON con gson
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation 'com.google.code.gson:gson:2.8.6'
+
+    //Parseo de JSON con jackson
+    implementation 'com.squareup.retrofit2:converter-jackson:2.7.2'
+    implementation group: 'javax.annotation', name: 'javax.annotation-api', version: '1.3.2'
 
     //Logging HTTP
     implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'

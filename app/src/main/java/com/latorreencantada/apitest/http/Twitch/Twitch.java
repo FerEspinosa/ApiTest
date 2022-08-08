@@ -1,5 +1,5 @@
 
-package com.latorreencantada.apitest.Twitch;
+package com.latorreencantada.apitest.http.Twitch;
 
 import java.util.List;
 import javax.annotation.Generated;
