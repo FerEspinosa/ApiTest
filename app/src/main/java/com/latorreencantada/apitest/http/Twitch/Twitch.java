@@ -11,17 +11,17 @@ public class Twitch {
 
     @SerializedName("data")
     @Expose
-    private List<Game> data = null;
+    private List<Game> games = null;
     @SerializedName("pagination")
     @Expose
     private Pagination pagination;
 
-    public List<Game> getData() {
-        return data;
+    public List<Game> getGames() {
+        return games;
     }
 
-    public void setData(List<Game> data) {
-        this.data = data;
+    public void setGames(List<Game> games) {
+        this.games = games;
     }
 
     public Pagination getPagination() {
