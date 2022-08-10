@@ -1,6 +1,9 @@
-package com.latorreencantada.apitest;
+package com.latorreencantada.apitest.root;
 
 import android.app.Application;
+
+import com.latorreencantada.apitest.DaggerApplicationComponent;
+import com.latorreencantada.apitest.http.TwitchModule;
 
 public class App extends Application {
 
@@ -12,6 +15,7 @@ public class App extends Application {
 
         component = DaggerApplicationComponent.builder()
                 .applicationModule(new ApplicationModule(this))
+                .twitchModule(new TwitchModule())
                 .build();
 
     }

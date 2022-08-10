@@ -8,6 +8,22 @@ import com.google.gson.annotations.SerializedName;
 @Generated("jsonschema2pojo")
 public class Game {
 
+
+
+    public Game(){
+
+    }
+
+    public Game(String name, String url){
+        this.name = name;
+        this.boxArtUrl = url;
+    }
+/*
+    public Game(String name, String url){
+        this.setBoxArtUrl(url);
+        this.setName(name);
+    }
+*/
     @SerializedName("id")
     @Expose
     private String id;

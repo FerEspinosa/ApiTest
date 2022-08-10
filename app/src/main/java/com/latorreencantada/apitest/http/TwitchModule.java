@@ -20,6 +20,7 @@ public class TwitchModule {
         return new OkHttpClient.Builder().addInterceptor(interceptor).build();
     }
 
+    @Provides
     public Retrofit provideRetrofit (String baseUrl, OkHttpClient client){
         return new Retrofit.Builder()
                 .baseUrl(baseUrl)
